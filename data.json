@@ -70,6 +70,46 @@
         {"year": 4, "type": "전공선택", "name": "반도체공정화학개론", "credit": 3},
         {"year": 4, "type": "전공선택", "name": "반도체공정실험", "credit": 2}
       ]
+    },
+    {
+  "id": "aerospace",
+  "name": "항공우주공학과",
+  "curriculum": [
+    {"year": 1, "type": "전공기초", "name": "공학미적분학(I)", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "일반물리학(I)", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "일반물리학실험(I)", "credit": 1},
+    {"year": 1, "type": "전공기초", "name": "일반화학", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "항공우주학개론", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "공학미적분학(II)", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "일반물리학(II)", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "일반물리학실험(II)", "credit": 1},
+    {"year": 1, "type": "전공기초", "name": "공학컴퓨팅개론", "credit": 2},
+    {"year": 2, "type": "전공기초", "name": "공학수학(I)", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "정역학", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "항공우주기초실험", "credit": 1},
+    {"year": 2, "type": "전공선택", "name": "항공우주프로그래밍", "credit": 3},
+    {"year": 2, "type": "전공기초", "name": "공학수학(II)", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "항공우주열역학", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "항공우주재료역학", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "동역학", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "항공우주유체역학(I)", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "비행역학(I)", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "구조역학", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "항공우주응용실험(I)", "credit": 1},
+    {"year": 3, "type": "전공선택", "name": "자동제어", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "항공우주유체역학(II)", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "공력설계", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "가스동력학", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "항공우주응용실험(II)", "credit": 1},
+    {"year": 3, "type": "전공선택", "name": "진동학", "credit": 3},
+    {"year": 4, "type": "전공필수", "name": "항공기개념설계(I)", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "우주역학", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "압축성유동", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "로켓추진공학", "credit": 3},
+    {"year": 4, "type": "전공필수", "name": "항공기개념설계(II)", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "헬리콥터공학", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "항공기엔진설계", "credit": 3}
+     ]
     }
   ]
 }

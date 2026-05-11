@@ -1,6 +1,31 @@
 {
   "departments": [
     {
+      "id": "materials",
+      "name": "재료공학부",
+      "curriculum": [
+        {"year": 1, "type": "전공필수", "name": "재료공학입문", "credit": 1},
+        {"year": 1, "type": "전공기초", "name": "공업수학(I)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반화학(I)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반화학실험(I)", "credit": 1},
+        {"year": 1, "type": "전공기초", "name": "일반물리학(I)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "재료과학개론(I)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "재료공학열역학(I)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "재료과학개론(II)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "재료공학열역학(II)", "credit": 3},
+        {"year": 2, "type": "전공선택", "name": "재료역학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "X-선회절및결정학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "재료공학실험(I)", "credit": 1},
+        {"year": 3, "type": "전공필수", "name": "재료전자기적성질", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "상변태", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "재료강도학", "credit": 3},
+        {"year": 4, "type": "전공필수", "name": "재료공학실험(II)", "credit": 1},
+        {"year": 4, "type": "전공선택", "name": "복합재료", "credit": 3},
+        {"year": 4, "type": "전공선택", "name": "철강재료", "credit": 3},
+        {"year": 4, "type": "전공선택", "name": "전자부품재료", "credit": 3}
+      ]
+    },
+    {
       "id": "polymer",
       "name": "고분자공학과",
       "curriculum": [
@@ -13,9 +38,11 @@
         {"year": 2, "type": "전공필수", "name": "유기화학(I)", "credit": 3},
         {"year": 2, "type": "전공필수", "name": "공학미분방정식", "credit": 3},
         {"year": 2, "type": "전공필수", "name": "물리화학실험(I)", "credit": 1},
+        {"year": 2, "type": "전공필수", "name": "고분자화학", "credit": 3},
         {"year": 3, "type": "전공필수", "name": "고분자물리화학", "credit": 3},
         {"year": 3, "type": "전공필수", "name": "고분자기기분석실험", "credit": 1},
         {"year": 3, "type": "전공필수", "name": "고분자화학실험", "credit": 1},
+        {"year": 3, "type": "전공필수", "name": "고분자구조및물성", "credit": 3},
         {"year": 4, "type": "전공필수", "name": "고분자가공설계", "credit": 3},
         {"year": 4, "type": "전공필수", "name": "고분자가공실험", "credit": 1},
         {"year": 4, "type": "전공선택", "name": "기능성고분자(I)", "credit": 3},
@@ -33,31 +60,15 @@
         {"year": 1, "type": "전공기초", "name": "일반화학(I)", "credit": 3},
         {"year": 2, "type": "전공기초", "name": "공학수학", "credit": 3},
         {"year": 2, "type": "전공필수", "name": "유기화학(I)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "유기화학(II)", "credit": 3},
         {"year": 3, "type": "전공필수", "name": "유기소재시스템물리", "credit": 3},
         {"year": 3, "type": "전공필수", "name": "유기소재형성공학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "유기소재실험(I)", "credit": 2},
         {"year": 3, "type": "전공선택", "name": "하이브리드소재", "credit": 3},
         {"year": 3, "type": "전공선택", "name": "계면공학", "credit": 3},
         {"year": 3, "type": "전공선택", "name": "유기소재설계및실험", "credit": 2},
         {"year": 4, "type": "전공선택", "name": "반도체공정화학개론", "credit": 3},
         {"year": 4, "type": "전공선택", "name": "반도체공정실험", "credit": 2}
-      ]
-    },
-    {
-      "id": "materials",
-      "name": "재료공학부",
-      "curriculum": [
-        {"year": 1, "type": "전공필수", "name": "재료공학입문", "credit": 1},
-        {"year": 1, "type": "전공기초", "name": "공업수학(I)", "credit": 3},
-        {"year": 1, "type": "전공기초", "name": "일반화학(I)", "credit": 3},
-        {"year": 1, "type": "전공기초", "name": "일반화학실험(I)", "credit": 1},
-        {"year": 1, "type": "전공기초", "name": "일반물리학(I)", "credit": 3},
-        {"year": 2, "type": "전공필수", "name": "재료과학개론(I)", "credit": 3},
-        {"year": 2, "type": "전공선택", "name": "재료역학", "credit": 3},
-        {"year": 3, "type": "전공필수", "name": "X-선회절및결정학", "credit": 3},
-        {"year": 3, "type": "전공필수", "name": "재료공학실험(I)", "credit": 1},
-        {"year": 3, "type": "전공필수", "name": "재료전자기적성질", "credit": 3},
-        {"year": 4, "type": "전공필수", "name": "재료공학실험(II)", "credit": 1},
-        {"year": 4, "type": "전공선택", "name": "복합재료", "credit": 3}
       ]
     }
   ]

@@ -14,6 +14,13 @@ body {
     color: #333;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 header {
     background: var(--primary);
     color: white;

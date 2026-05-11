@@ -1,101 +1,94 @@
 :root {
-    --bg-color: #f0f2f5;
+    --primary: #0052a4;
+    --bg: #f4f7fb;
     --card-bg: #ffffff;
-    --primary-dark: #1a2a3a;
-    --text-main: #333;
-    --type-req: #ff7675;   /* 전공필수: Red */
-    --type-base: #74b9ff;  /* 전공기초: Blue */
-    --type-opt: #55efc4;   /* 전공선택: Green */
-    --border-radius: 12px;
+    --req-color: #ef4444;   /* 전공필수 */
+    --base-color: #3b82f6;  /* 전공기초 */
+    --sel-color: #10b981;   /* 전공선택 */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--bg);
     margin: 0;
-    line-height: 1.6;
+    color: #333;
 }
 
 header {
-    background-color: var(--primary-dark);
+    background: var(--primary);
     color: white;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.controls { margin-top: 1.5rem; }
+.subtitle { opacity: 0.9; margin-bottom: 1.5rem; }
 
 select {
-    padding: 12px 25px;
+    padding: 12px 20px;
     font-size: 1rem;
     border-radius: 30px;
     border: none;
-    outline: none;
+    min-width: 250px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-select:hover { transform: translateY(-2px); }
-
 #roadmap-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    display: flex;
+    gap: 20px;
     padding: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+    overflow-x: auto; /* 학년별 가로 스크롤 */
+    min-height: 60vh;
 }
 
 .placeholder {
-    grid-column: 1 / -1;
+    width: 100%;
     text-align: center;
-    font-size: 1.2rem;
     color: #888;
-    margin-top: 50px;
+    font-size: 1.2rem;
+    padding-top: 50px;
 }
 
 .year-column {
-    background-color: #e9ecef;
-    border-radius: var(--border-radius);
+    flex: 0 0 300px;
+    background: #eef2f6;
+    border-radius: 15px;
     padding: 20px;
     height: fit-content;
-    border-top: 5px solid var(--primary-dark);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .year-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: var(--primary);
     text-align: center;
-    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    margin-top: 0;
 }
 
-.subject-card {
-    background: var(--card-bg);
-    margin-bottom: 15px;
+.course-card {
+    background: white;
     padding: 15px;
-    border-radius: 8px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #ccc;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border-left: 6px solid #ccc;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
-.subject-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.course-card:hover { transform: translateY(-3px); }
+.course-card.required { border-left-color: var(--req-color); }
+.course-card.base { border-left-color: var(--base-color); }
+.course-card.elective { border-left-color: var(--sel-color); }
+
+.course-name { font-weight: bold; display: block; margin-bottom: 8px; }
+.tag {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #eee;
+    margin-right: 5px;
 }
 
-.card-전공필수 { border-left-color: var(--type-req); }
-.card-전공기초 { border-left-color: var(--type-base); }
-.card-전공선택 { border-left-color: var(--type-opt); }
-
-.sub-name { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
-.sub-info { font-size: 0.9rem; color: #666; }
-
-footer { text-align: center; padding: 20px; color: #888; font-size: 0.8rem; }
-
-@media (max-width: 768px) {
-    #roadmap-container { grid-template-columns: 1fr; padding: 20px; }
-}
+footer { text-align: center; padding: 20px; color: #aaa; font-size: 0.9rem; }

@@ -1,0 +1,60 @@
+{
+  "departments": [
+    {
+      "id": "polymer",
+      "name": "고분자공학과",
+      "curriculum": [
+        {"year": 1, "type": "전공기초", "name": "공학미적분학", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반물리학(I)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반화학(I)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반물리학실험(I)", "credit": 1},
+        {"year": 1, "type": "전공기초", "name": "일반화학실험(I)", "credit": 1},
+        {"year": 1, "type": "전공기초", "name": "공학컴퓨팅개론", "credit": 2},
+        {"year": 1, "type": "전공기초", "name": "일반화학(II)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반화학실험(II)", "credit": 1},
+        {"year": 2, "type": "전공필수", "name": "유기화학(I)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "물리화학(I)", "credit": 3},
+        {"year": 2, "type": "전공기초", "name": "공학수학(I)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "유기화학(II)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "물리화학(II)", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "고분자화학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "고분자물리화학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "고분자구조및물성", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "고분자실험(I)", "credit": 2},
+        {"year": 3, "type": "전공필수", "name": "고분자물리학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "고분자실험(II)", "credit": 2},
+        {"year": 4, "type": "전공필수", "name": "고분자가공설계", "credit": 3}
+      ]
+    },
+    {
+      "id": "organic",
+      "name": "유기소재시스템공학과",
+      "curriculum": [
+        {"year": 1, "type": "전공기초", "name": "일반물리학(I)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "일반화학(I)", "credit": 3},
+        {"year": 1, "type": "전공기초", "name": "공학미적분학", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "유기화학(I)", "credit": 3},
+        {"year": 2, "type": "전공기초", "name": "공학수학", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "유기화학(II)", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "유기소재형성공학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "유기소재실험(I)", "credit": 2},
+        {"year": 3, "type": "전공필수", "name": "유기소재실험(II)", "credit": 2},
+        {"year": 4, "type": "전공선택", "name": "반도체공정화학개론", "credit": 3}
+      ]
+    },
+    {
+      "id": "materials",
+      "name": "재료공학부",
+      "curriculum": [
+        {"year": 1, "type": "전공필수", "name": "재료공학입문", "credit": 1},
+        {"year": 1, "type": "전공기초", "name": "공학미적분학", "credit": 3},
+        {"year": 2, "type": "전공필수", "name": "재료공학열역학(I)", "credit": 3},
+        {"year": 2, "type": "전공선택", "name": "재료역학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "X-선회절및결정학", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "재료전자기적성질", "credit": 3},
+        {"year": 3, "type": "전공필수", "name": "재료공학실험(I)", "credit": 1},
+        {"year": 4, "type": "전공필수", "name": "재료공학실험(II)", "credit": 1}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 학과 로드맵 상담소</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
+        #chat-container { width: 400px; height: 600px; background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
+        #chat-window { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; line-height: 1.4; }
+        .user { align-self: flex-end; background-color: #0084ff; color: white; }
+        .bot { align-self: flex-start; background-color: #e4e6eb; color: black; }
+        #input-area { display: flex; padding: 15px; border-top: 1px solid #ddd; }
+        #user-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
+        #send-btn { margin-left: 10px; padding: 10px 20px; background: #0084ff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <div id="chat-window">
+        <div class="msg bot">안녕하세요! 경영학과 선배 AI입니다. 무엇을 도와드릴까요?</div>
+    </div>
+    <div id="input-area">
+        <input type="text" id="user-input" placeholder="질문을 입력하세요...">
+        <button id="send-btn">전송</button>
+    </div>
+</div>
+
+<script>
+    const chatWindow = document.getElementById('chat-window');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    // 화면에 메시지를 추가하는 함수
+    function addMsg(text, type) {
+        const div = document.createElement('div');
+        div.className = `msg ${type}`;
+        div.innerText = text;
+        chatWindow.appendChild(div);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    // 서버(app.py)로 질문을 보내고 답을 받는 함수
+    async function askAI() {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        addMsg(message, 'user'); // 내 메시지 화면에 표시
+        userInput.value = '';
+
+        try {
+            // 우리가 띄운 서버(http://127.0.0.1:5000)에 전화를 겁니다
+            const response = await fetch('http://127.0.0.1:5000/ask', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            });
+
+            const data = await response.json();
+            addMsg(data.reply, 'bot'); // AI 답변 화면에 표시
+        } catch (error) {
+            addMsg('앗, 서버가 꺼져있는 것 같아요. app.py를 확인해주세요!', 'bot');
+        }
+    }
+
+    sendBtn.addEventListener('click', askAI);
+    userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') askAI(); });
+</script>
+
+</body>
+</html>

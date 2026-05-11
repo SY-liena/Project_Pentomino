@@ -58,4 +58,36 @@ function renderRoadmap(curriculum) {
     }
 }
 
+
+// script.js에 추가
+
+async function callChatbot(message) {
+    try {
+        const response = await fetch('http://localhost:5000/ask-ai', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message }),
+        });
+
+        const data = await response.json();
+        if (data.reply) {
+            console.log("AI 답변:", data.reply);
+            alert("AI 가이드: " + data.reply); // 우선 alert로 확인
+        }
+    } catch (error) {
+        console.error("AI 통신 오류:", error);
+    }
+}
+
+// 네비게이션 버튼 이벤트 연결 예시
+// HTML의 <a href="#" class="nav-btn-ai" onclick="askAiPrompt()"> 로 수정 후 사용
+function askAiPrompt() {
+    const question = prompt("어떤 전공 과목이 궁금하신가요?");
+    if (question) {
+        callChatbot(question);
+    }
+}
+
 init();

@@ -110,6 +110,34 @@
     {"year": 4, "type": "전공선택", "name": "헬리콥터공학", "credit": 3},
     {"year": 4, "type": "전공선택", "name": "항공기엔진설계", "credit": 3}
      ]
-    }
+    },
+    {
+  "id": "cse",
+  "name": "정보컴퓨터공학과",
+  "curriculum": [
+    {"year": 1, "type": "전공기초", "name": "프로그래밍원리", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "컴퓨팅사고와기초코딩", "credit": 2},
+    {"year": 1, "type": "전공기초", "name": "미적분학(I)", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "미적분학(II)", "credit": 3},
+    {"year": 1, "type": "전공기초", "name": "일반물리학(I)", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "데이터구조", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "객체지향프로그래밍", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "이산수학", "credit": 3},
+    {"year": 2, "type": "전공필수", "name": "디지털논리회로", "credit": 3},
+    {"year": 2, "type": "전공기초", "name": "선형대수학", "credit": 3},
+    {"year": 2, "type": "전공기초", "name": "공학확률통계", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "알고리즘분석", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "운영체제", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "컴퓨터구조", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "소프트웨어공학", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "데이터베이스", "credit": 3},
+    {"year": 3, "type": "전공필수", "name": "컴퓨터네트워크", "credit": 3},
+    {"year": 4, "type": "전공필수", "name": "종합설계(I)", "credit": 3},
+    {"year": 4, "type": "전공필수", "name": "종합설계(II)", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "인공지능", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "컴퓨터보안", "credit": 3},
+    {"year": 4, "type": "전공선택", "name": "빅데이터컴퓨팅", "credit": 3}
+  ]
+  }
   ]
 }

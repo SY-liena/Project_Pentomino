@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">PNU Roadmap</a>
+        <ul class="nav-menu">
+            <li><a href="#">홈</a></li>
+            <li><a href="#">학과 안내</a></li>
+            <li><a href="#">사용 방법</a></li>
+            <li><a href="#" class="nav-btn-ai" onclick="alert('AI 챗봇 기능은 준비 중입니다! 조금만 기다려주세요.')">AI 전공 가이드</a></li>
+        </ul>
+    </div>
+    </nav>
+
     <header>
         <h1>🎓 전공 로드맵 시각화</h1>
         <p class="subtitle">학과를 선택하면 전체 커리큘럼이 로드맵으로 표시됩니다.</p>
@@ -16,6 +29,7 @@
             </select>
         </div>
     </header>
+
 
     <main id="roadmap-container">
         <div class="placeholder">데이터를 불러오는 중입니다...</div>

@@ -91,4 +91,32 @@ select {
     margin-right: 5px;
 }
 
+
+/* style.css 하단에 추가 */
+
+/* AI 챗봇 버튼 전용 스타일 */
+.nav-btn-ai {
+    background-color: var(--primary); /* 메인 브랜드 색상 사용 */
+    color: white !important; /* 글자색 흰색 강제 */
+    padding: 8px 16px;
+    border-radius: 20px; /* 둥근 캡슐 모양 */
+    font-weight: 600 !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn-ai:hover {
+    background-color: #003d7a; /* 호버 시 조금 더 어두운 색상 */
+    transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 기존 메뉴들 간격 조절 */
+.nav-menu {
+    display: flex;
+    align-items: center; /* 버튼과 텍스트 높이 맞춤 */
+    list-style: none;
+    gap: 25px;
+}
+
 footer { text-align: center; padding: 20px; color: #aaa; font-size: 0.9rem; }

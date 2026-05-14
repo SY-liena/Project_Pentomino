@@ -63,7 +63,7 @@ function renderRoadmap(curriculum) {
 
 async function callChatbot(message) {
     try {
-        const response = await fetch('http://localhost:5000/ask-ai', {
+        const response = await fetch('https://project-pentomino.onrender.com/ask-ai', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -135,8 +135,8 @@ async function handleChat() {
     chatWindow.appendChild(loadingDiv);
 
     try {
-        // Flask 서버로 요청 (라우트 주소가 /ask-ai 인지 확인하세요)
-        const response = await fetch('http://localhost:5000/ask-ai', {
+        // Flask 서버로 요청 (Render 배포 서버 사용)
+        const response = await fetch('https://project-pentomino.onrender.com/ask-ai', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message })

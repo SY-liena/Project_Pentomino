@@ -14,7 +14,7 @@ if not GOOGLE_API_KEY:
 
 # Gemini AI 설정
 genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")
+model = genai.GenerativeModel('gemini-pro')
 
 app = Flask(__name__)
 
@@ -31,7 +31,6 @@ def ask_ai():
         if not user_message:
             return jsonify({"reply": "질문을 입력해 주세요!"}), 400
 
-        # AI에게 전달할 '페르소나'와 '질문'을 조합합니다.
         # 전공 가이드에 특화된 답변을 하도록 유도합니다.
         prompt = f"""
         너는 대학교 전공 로드맵 가이드 AI야. 학생의 질문에 대해 친절하고 전문적으로 답변해줘.

@@ -16,6 +16,7 @@ if not GOOGLE_API_KEY:
 genai.configure(api_key=GOOGLE_API_KEY)
 MODEL_NAME = os.getenv('GENAI_MODEL', 'text-bison-001')
 model = genai.GenerativeModel(MODEL_NAME)
+DEBUG = os.getenv('DEBUG', 'false').lower() in ('1', 'true', 'yes')
 
 app = Flask(__name__)
 
@@ -45,8 +46,16 @@ def ask_ai():
         return jsonify({"reply": response.text})
 
     except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"reply": "AI 서비스와 연결하는 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요."}), 500
+        import traceback
+        traceback.print_exc()
+        error_message = str(e)
+        response_payload = {
+            "reply": "AI 서비스와 연결하는 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.",
+            "error": error_message
+        }
+        if DEBUG:
+            response_payload["reply"] = f"AI 서비스와 연결하는 중 오류가 발생했습니다: {error_message}"
+        return jsonify(response_payload), 500
 
 if __name__ == '__main__':
     # Render의 PORT 환경변수 사용, 없으면 로컬 개발용 5000

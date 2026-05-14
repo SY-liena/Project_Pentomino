@@ -144,7 +144,15 @@ async function handleChat() {
 
         // HTTP 상태 코드 확인
         if (!response.ok) {
-            throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+            const textBody = await response.text();
+            let serverError = textBody;
+            try {
+                const jsonBody = JSON.parse(textBody);
+                serverError = jsonBody.error || jsonBody.reply || textBody;
+            } catch (_) {
+                serverError = textBody;
+            }
+            throw new Error(`HTTP Error: ${response.status} ${response.statusText} - ${serverError}`);
         }
 
         const data = await response.json();

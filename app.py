@@ -14,7 +14,8 @@ if not GOOGLE_API_KEY:
 
 # Gemini AI 설정
 genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel('gemini-pro')
+MODEL_NAME = os.getenv('GENAI_MODEL', 'text-bison-001')
+model = genai.GenerativeModel(MODEL_NAME)
 
 app = Flask(__name__)
 

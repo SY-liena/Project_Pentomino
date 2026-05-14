@@ -8,6 +8,10 @@ import google.generativeai as genai
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
+# API 키 검증
+if not GOOGLE_API_KEY:
+    raise ValueError("❌ GOOGLE_API_KEY 환경변수가 설정되지 않았습니다. Render 대시보드에서 설정하세요.")
+
 # Gemini AI 설정
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
@@ -45,5 +49,6 @@ def ask_ai():
         return jsonify({"reply": "AI 서비스와 연결하는 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요."}), 500
 
 if __name__ == '__main__':
-    # 디버그 모드로 서버 실행 (포트 5000)
-    app.run('0.0.0.0', port=5000, debug=True)
+    # Render의 PORT 환경변수 사용, 없으면 로컬 개발용 5000
+    port = int(os.getenv('PORT', 5000))
+    app.run('0.0.0.0', port=port, debug=False)

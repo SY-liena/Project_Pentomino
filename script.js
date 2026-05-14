@@ -142,6 +142,11 @@ async function handleChat() {
             body: JSON.stringify({ message: message })
         });
 
+        // HTTP 상태 코드 확인
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+        }
+
         const data = await response.json();
         
         // 로딩 메시지 제거 후 답변 추가
@@ -153,7 +158,10 @@ async function handleChat() {
         }
     } catch (error) {
         document.getElementById(loadingId).remove();
-        addMessage('서버와 연결할 수 없습니다. Flask 서버가 켜져 있는지 확인해 주세요.', 'bot');
+        const errorMsg = error.message.includes('HTTP') 
+            ? `서버 오류: ${error.message}`
+            : '서버와 연결할 수 없습니다. Flask 서버가 켜져 있는지 확인해 주세요.';
+        addMessage(errorMsg, 'bot');
         console.error('Error:', error);
     }
 }

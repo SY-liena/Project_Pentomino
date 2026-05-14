@@ -91,3 +91,75 @@ function askAiPrompt() {
 }
 
 init();
+
+/* script.js 기존 코드 아래에 추가 */
+
+const chatContainer = document.getElementById('chat-container');
+const chatWindow = document.getElementById('chat-window');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+// 챗봇 창 토글 함수
+function toggleChat() {
+    if (chatContainer.style.display === 'none') {
+        chatContainer.style.display = 'flex';
+    } else {
+        chatContainer.style.display = 'none';
+    }
+}
+
+// 메시지 화면 추가 함수
+function addMessage(text, type) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `msg ${type}`;
+    msgDiv.innerText = text;
+    chatWindow.appendChild(msgDiv);
+    chatWindow.scrollTop = chatWindow.scrollHeight; // 스크롤 최하단 이동
+}
+
+// AI 응답 호출 함수
+async function handleChat() {
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    // 사용자 메시지 추가
+    addMessage(message, 'user');
+    userInput.value = '';
+
+    // 로딩 표시
+    const loadingId = 'loading-' + Date.now();
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'msg bot';
+    loadingDiv.id = loadingId;
+    loadingDiv.innerText = 'AI가 생각 중입니다...';
+    chatWindow.appendChild(loadingDiv);
+
+    try {
+        // Flask 서버로 요청 (라우트 주소가 /ask-ai 인지 확인하세요)
+        const response = await fetch('http://localhost:5000/ask-ai', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        });
+
+        const data = await response.json();
+        
+        // 로딩 메시지 제거 후 답변 추가
+        document.getElementById(loadingId).remove();
+        if (data.reply) {
+            addMessage(data.reply, 'bot');
+        } else {
+            addMessage('죄송합니다. 응답을 가져오지 못했습니다.', 'bot');
+        }
+    } catch (error) {
+        document.getElementById(loadingId).remove();
+        addMessage('서버와 연결할 수 없습니다. Flask 서버가 켜져 있는지 확인해 주세요.', 'bot');
+        console.error('Error:', error);
+    }
+}
+
+// 이벤트 리스너
+sendBtn.addEventListener('click', handleChat);
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleChat();
+});

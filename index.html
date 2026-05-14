@@ -9,16 +9,32 @@
 <body>
     
     <nav class="navbar">
-    <div class="nav-container">
-        <a href="#" class="nav-logo">PNU Roadmap</a>
-        <ul class="nav-menu">
-            <li><a href="#">홈</a></li>
-            <li><a href="#">학과 안내</a></li>
-            <li><a href="#">사용 방법</a></li>
-            <li><a href="#" class="nav-btn-ai" onclick="alert('AI 챗봇 기능은 준비 중입니다! 조금만 기다려주세요.')">AI 전공 가이드</a></li>
-        </ul>
-    </div>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">PNU Roadmap</a>
+            <ul class="nav-menu">
+                <li><a href="#">홈</a></li>
+                <li><a href="#">학과 안내</a></li>
+                <li><a href="#">사용 방법</a></li>
+                <li><a href="#" class="nav-btn-ai" onclick="toggleChat()">AI 전공 가이드</a></li>
+            </ul>
+        </div>
     </nav>
+
+    <div id="chat-container" style="display: none;">
+        <div id="chat-header">
+            <span>🤖 AI 전공 상담소</span>
+            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2rem;">×</button>
+        </div>
+        <div id="chat-window">
+            <div class="msg bot">안녕하세요! 전공 선택과 로드맵에 대해 무엇이든 물어보세요.</div>
+        </div>
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="질문을 입력하세요...">
+            <button id="send-btn">전송</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 
     <header>
         <h1>🎓 전공 로드맵 시각화</h1>
@@ -36,9 +52,8 @@
     </main>
 
     <footer>
-        <p>© 2026 Major Roadmap System | Pusan National University</p>
+        <p>© 2026 Major Roadmap System | Pusan National University 다리놔드림</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>

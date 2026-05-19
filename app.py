@@ -61,11 +61,15 @@ def ask_ai():
         # 프론트엔드(JS)에서 보낸 JSON 데이터를 받습니다.
         data = request.get_json(silent=True)
         if not data or not isinstance(data, dict):
+            print("[ERROR] Invalid JSON format received")
             return jsonify({"reply": "잘못된 요청입니다. JSON 형식으로 다시 시도해 주세요."}), 400
 
         user_message = (data.get("message") or "").strip()
         if not user_message:
+            print("[ERROR] No message provided")
             return jsonify({"reply": "질문을 입력해 주세요!"}), 400
+
+        print(f"[INFO] Processing message: {user_message[:50]}...")
 
         # 전공 가이드에 특화된 답변을 하도록 유도합니다.
         prompt = f"""
@@ -74,15 +78,19 @@ def ask_ai():
         """
 
         # Gemini AI 응답 생성
+        print(f"[INFO] Calling Gemini API with model: {MODEL_NAME}")
         response = model.generate_content(prompt=prompt)
         reply_text = getattr(response, 'text', None) or str(response)
+        print(f"[INFO] API response received successfully")
 
         # 결과 반환
         return jsonify({"reply": reply_text})
 
     except Exception as e:
         import traceback
-        traceback.print_exc()
+        error_traceback = traceback.format_exc()
+        print(f"[ERROR] Exception occurred: {error_traceback}")
+        
         error_message = str(e)
         response_payload = {
             "reply": "AI 서비스와 연결하는 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요."
@@ -90,6 +98,7 @@ def ask_ai():
         if DEBUG:
             response_payload["reply"] = f"AI 서비스와 연결하는 중 오류가 발생했습니다: {error_message}"
             response_payload["error"] = error_message
+            response_payload["traceback"] = error_traceback
         return jsonify(response_payload), 500
 
 if __name__ == '__main__':

@@ -80,11 +80,27 @@ function toggleChat() {
     }
 }
 
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function formatBotReply(text) {
+    const escaped = escapeHtml(text);
+    const formattedBold = escaped.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    return formattedBold.replace(/\r?\n/g, '<br>');
+}
+
 // 메시지 화면 추가 함수
 function addMessage(text, type) {
     const msgDiv = document.createElement('div');
     msgDiv.className = `msg ${type}`;
-    msgDiv.innerText = text;
+    if (type === 'bot') {
+        msgDiv.innerHTML = formatBotReply(text);
+    } else {
+        msgDiv.innerText = text;
+    }
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight; // 스크롤 최하단 이동
 }

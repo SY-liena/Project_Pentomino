@@ -185,6 +185,12 @@ select {
     border-bottom-left-radius: 2px;
 }
 
+.bot strong {
+    font-weight: 700;
+    font-size: 1.03em;
+    color: #111;
+}
+
 #input-area {
     display: flex;
     padding: 15px;

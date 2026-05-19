@@ -59,9 +59,8 @@ function renderRoadmap(curriculum) {
 }
 
 
-// AI 서버 엔드포인트
-// 동일한 도메인에서 Flask 백엔드와 함께 배포하거나 로컬에서 테스트할 때 모두 동작합니다.
-const AI_ENDPOINT = '/ask-ai';
+// AI 서버 엔드포인트 (Render 배포 서버)
+const AI_ENDPOINT = 'https://project-pentomino.onrender.com/ask-ai';
 
 init();
 

@@ -48,7 +48,15 @@ DEBUG = os.getenv('DEBUG', 'false').lower() in ('1', 'true', 'yes')
 app = Flask(__name__)
 
 # 브라우저에서 서버로의 접근을 허용합니다 (CORS 해결)
-CORS(app)
+# GitHub Pages 등 다양한 출처에서의 요청을 허용
+CORS(app, resources={
+    r"/ask-ai": {
+        "origins": ["*"],
+        "methods": ["POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"],
+        "supports_credentials": False
+    }
+})
 
 @app.route('/ask-ai', methods=['POST'])
 def ask_ai():

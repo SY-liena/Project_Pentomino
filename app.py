@@ -79,7 +79,7 @@ def ask_ai():
 
         # Gemini AI 응답 생성
         print(f"[INFO] Calling Gemini API with model: {MODEL_NAME}")
-        response = model.generate_content(prompt=prompt)
+        response = model.generate_content(prompt)
         reply_text = getattr(response, 'text', None) or str(response)
         print(f"[INFO] API response received successfully")
 

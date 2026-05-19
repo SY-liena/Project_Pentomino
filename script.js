@@ -59,36 +59,9 @@ function renderRoadmap(curriculum) {
 }
 
 
-// script.js에 추가
-
-async function callChatbot(message) {
-    try {
-        const response = await fetch('https://project-pentomino.onrender.com/ask-ai', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: message }),
-        });
-
-        const data = await response.json();
-        if (data.reply) {
-            console.log("AI 답변:", data.reply);
-            alert("AI 가이드: " + data.reply); // 우선 alert로 확인
-        }
-    } catch (error) {
-        console.error("AI 통신 오류:", error);
-    }
-}
-
-// 네비게이션 버튼 이벤트 연결 예시
-// HTML의 <a href="#" class="nav-btn-ai" onclick="askAiPrompt()"> 로 수정 후 사용
-function askAiPrompt() {
-    const question = prompt("어떤 전공 과목이 궁금하신가요?");
-    if (question) {
-        callChatbot(question);
-    }
-}
+// AI 서버 엔드포인트
+// 동일한 도메인에서 Flask 백엔드와 함께 배포하거나 로컬에서 테스트할 때 모두 동작합니다.
+const AI_ENDPOINT = '/ask-ai';
 
 init();
 
@@ -136,7 +109,7 @@ async function handleChat() {
 
     try {
         // Flask 서버로 요청 (Render 배포 서버 사용)
-        const response = await fetch('https://project-pentomino.onrender.com/ask-ai', {
+        const response = await fetch(AI_ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message })

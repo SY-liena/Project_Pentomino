@@ -36,11 +36,8 @@ try:
             selected = text_models[0]
 
         MODEL_NAME = selected.name.split('/')[-1]
-        print(f"Using model: {MODEL_NAME}")
-    else:
-        print(f"No supported text generation models found, using fallback: {MODEL_NAME}")
-except Exception as e:
-    print(f"Failed to list models: {e}, using fallback: {MODEL_NAME}")
+except Exception:
+    pass
 
 model = genai.GenerativeModel(MODEL_NAME)
 DEBUG = os.getenv('DEBUG', 'false').lower() in ('1', 'true', 'yes')
@@ -61,27 +58,23 @@ def ask_ai():
         # 프론트엔드(JS)에서 보낸 JSON 데이터를 받습니다.
         data = request.get_json(silent=True)
         if not data or not isinstance(data, dict):
-            print("[ERROR] Invalid JSON format received")
             return jsonify({"reply": "잘못된 요청입니다. JSON 형식으로 다시 시도해 주세요."}), 400
 
         user_message = (data.get("message") or "").strip()
         if not user_message:
-            print("[ERROR] No message provided")
             return jsonify({"reply": "질문을 입력해 주세요!"}), 400
-
-        print(f"[INFO] Processing message: {user_message[:50]}...")
 
         # 전공 가이드에 특화된 답변을 하도록 유도합니다.
         prompt = f"""
-        너는 대학교 전공 로드맵 가이드 AI야. 학생의 질문에 대해 친절하고 전문적으로 답변해줘.
+        너는 부산대학교 전공 로드맵 가이드 AI야. 학생의 질문에 대해 친절하고 전문적으로 답변해줘.
+        단, 답변이 너무 길어지지 않도록 핵심을 간결하게 설명해줘. 학생이 추가 질문을 할 수 있도록 유도하는 답변도 좋아.
+        답변의 최대 길이는 20줄로 제한해줘. 
         질문: {user_message}
         """
 
         # Gemini AI 응답 생성
-        print(f"[INFO] Calling Gemini API with model: {MODEL_NAME}")
         response = model.generate_content(prompt)
         reply_text = getattr(response, 'text', None) or str(response)
-        print(f"[INFO] API response received successfully")
 
         # 결과 반환
         return jsonify({"reply": reply_text})
